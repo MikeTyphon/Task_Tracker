@@ -1,0 +1,12 @@
+#! python3 Task Tacking App
+
+Planned Features:
+
+1. Take user inputted tasks
+2. Record time task began
+3. Record time task ended
+4. Organize this data into an accessible format
+   -eventually this could potentially include calendar integration
+5. Create a dropdown or selectable list so that repeated tasks can be accessed easily
+6. Have a space for notes that user can add
+
