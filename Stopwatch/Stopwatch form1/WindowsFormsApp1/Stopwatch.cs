@@ -9,15 +9,14 @@ using System.Threading;
 using System.Diagnostics;
 using System.Windows.Forms;
 
-
 namespace WindowsFormsApp1
 {
-    public partial class Form1 : Form
+    public partial class Stopwatch : Form
     {
 
-        Stopwatch stopwatch;
-
-        public Form1()
+        System.Diagnostics.Stopwatch stopwatch;
+        List<string> taskList = new List<string>();
+        public Stopwatch()
         {
             InitializeComponent();
             StartUp();
@@ -30,12 +29,10 @@ namespace WindowsFormsApp1
 
         private void StartUp()
         {
-            Textbox_Stopwatch.Text = "00 : 00 :00:00";
-            stopwatch = new Stopwatch();
+            Textbox_Stopwatch.Text = "00:00:00:00";
+            stopwatch = new System.Diagnostics.Stopwatch();
             //stopwatch.Start();
             timer1.Enabled = false;
-
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -61,5 +58,34 @@ namespace WindowsFormsApp1
             timer1.Enabled = false;
             Textbox_Stopwatch.Text = "00:00:00:00";
         }
+
+        private void save_Button_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine(stopwatch.Elapsed.ToString());
+            Console.WriteLine(comboBox1.Text);
+            timer1.Enabled = false;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+
+
+        public void add_TaskText_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+        public void addTask_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine(add_TaskText.Text);
+            taskList.Add(add_TaskText.Text);
+            Console.WriteLine("*List*");
+            taskList.ForEach(Console.WriteLine);
+            Console.WriteLine("*Endlist*");
+            comboBox1.Items.Add(add_TaskText.Text);
+
+        }
+
     }
 }
